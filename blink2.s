@@ -44,7 +44,7 @@ setup:
 
         # set led status initial value
         ldr     r0, =GPIOC_ODR @ moves address of GPIOC_ODR register to r0
-        ldr     r1, =GPIOB_ODR
+        ldr     r7, =GPIOB_ODR
         mov     r1, 0x0
 loop:   
         cmp     r1, 0x0 @ if r1 equals zero then turn PC13 on
@@ -55,7 +55,7 @@ loop:
 L1:     mov     r3, 0x2000 @ turns PC13 off
         mov     r4, 0x2000
 L2:     str     r3, [r0] @ M[GPIOC_ODR] gets r1 value
-        str     r4, [r1]
+        str     r4, [r7]
         # dirty delay
         ldr     r2, =2666667 @ r2 gets 2666667
         b       L3
