@@ -35,8 +35,8 @@ setup:
         ldr     r3, =0x44444444 @ this constant signals the reset state
         str     r3, [r0] @ M[GPIOC_CRL] gets 0x44444444
 
-        # reset pin 0 to 7 in GPIOB_CRL
-        ldr     r0, =GPIOB_CRL @ moves address of GPIOC_CRL register to r0
+        # reset pin 0 to 7 in GPIOB_CRH
+        ldr     r0, =GPIOB_CRH @ moves address of GPIOC_CRL register to r0
         ldr     r3, =0x44444444 @ this constant signals the reset state
         str     r3, [r0] @ M[GPIOC_CRL] gets 0x44444444
 
