@@ -42,9 +42,9 @@ setup:
         str     r3, [r0] @ M[GPIOC_CRH] gets 0x44344444
 
         # set pin 1 as digital output
-        ldr     r0, =GPIOB_CRL
+        ldr     r0, =GPIOC_CRH
         @ 0100 0100 0100 0100 0100 0100 0011 0100
-        ldr     r4, =0x44444443
+        ldr     r4, =0x34444444
         str     r4, [r0]
 
         # set led status initial value
