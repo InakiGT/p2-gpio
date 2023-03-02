@@ -25,6 +25,11 @@ setup:
         mov     r3, 0x10 @ loads 16 in r1 to enable clock in port C (IOPC bit)
         str     r3, [r0] @ M[RCC_APB2ENR] gets 16
 
+        # enabling clock in port B
+        ldr     r0, =RCC_APB2ENR @ move 0x40021018 to r0
+        mov     r3, 0x08 @ loads 16 in r1 to enable clock in port C (IOPC bit)
+        str     r3, [r0] @ M[RCC_APB2ENR] gets 16
+
         # reset pin 0 to 7 in GPIOC_CRL
         ldr     r0, =GPIOC_CRL @ moves address of GPIOC_CRL register to r0
         ldr     r3, =0x44444444 @ this constant signals the reset state
@@ -41,9 +46,9 @@ setup:
         ldr     r3, =0x44344444 @ PC13: output push-pull, max speed 50 MHz, 
         str     r3, [r0] @ M[GPIOC_CRH] gets 0x44344444
 
-        # set pin 0 as digital output
+        # set pin 1 as digital output
         ldr     r0, =GPIOB_CRL
-        @ 0100 0100 0100 0100 0100 0100 0100 0011
+        @ 0100 0100 0100 0100 0100 0100 0011 0100
         ldr     r4, =0x44444434
         str     r4, [r0]
 
@@ -51,6 +56,7 @@ setup:
         ldr     r0, =GPIOC_ODR @ moves address of GPIOC_ODR register to r0
         ldr     r7, =GPIOB_ODR
         mov     r1, 0x0
+
 loop:   
         cmp     r1, 0x0 @ if r1 equals zero then turn PC13 on
         bne     L1 @ else, turns PC13 off
