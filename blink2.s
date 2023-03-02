@@ -26,8 +26,8 @@ setup:
         str     r3, [r0] @ M[RCC_APB2ENR] gets 16
 
         # enabling clock in port B
-        ldr     r0, =RCC_APB2ENR @ move 0x40021018 to r0
-        mov     r3, 0x08 @ loads 16 in r1 to enable clock in port C (IOPC bit)
+        ldr     r0, =0x40023800 @ move 0x40021018 to r0
+        mov     r3, 0x02 @ loads 16 in r1 to enable clock in port C (IOPC bit)
         str     r3, [r0] @ M[RCC_APB2ENR] gets 16
 
         # reset pin 0 to 7 in GPIOC_CRL
