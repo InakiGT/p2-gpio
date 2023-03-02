@@ -22,12 +22,7 @@
 setup:
         # enabling clock in port C
         ldr     r0, =RCC_APB2ENR @ move 0x40021018 to r0
-        mov     r3, 0x10 @ loads 16 in r1 to enable clock in port C (IOPC bit)
-        str     r3, [r0] @ M[RCC_APB2ENR] gets 16
-
-        # enabling clock in port B
-        ldr     r0, =RCC_APB2ENR @ move 0x40021018 to r0
-        mov     r3, 0xF @ loads 16 in r1 to enable clock in port C (IOPC bit)
+        mov     r3, 0x18 @ loads 16 in r1 to enable clock in port C (IOPC bit)
         str     r3, [r0] @ M[RCC_APB2ENR] gets 16
 
         # reset pin 0 to 7 in GPIOC_CRL
@@ -49,7 +44,7 @@ setup:
         # set pin 1 as digital output
         ldr     r0, =GPIOB_CRL
         @ 0100 0100 0100 0100 0100 0100 0011 0100
-        ldr     r4, =0x44444434
+        ldr     r4, =0x44444443
         str     r4, [r0]
 
         # set led status initial value
