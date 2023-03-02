@@ -38,13 +38,13 @@ setup:
         # set pin 13 as digital output
         ldr     r0, =GPIOC_CRH @ moves address of GPIOC_CRH register to r0
         @ 0100 0100 0011 0100 0100 0100 0100 0100
-        ldr     r3, =0x44344444 @ PC13: output push-pull, max speed 50 MHz, 
+        ldr     r3, =0x34444444 @ PC13: output push-pull, max speed 50 MHz, 
         str     r3, [r0] @ M[GPIOC_CRH] gets 0x44344444
 
         # set pin 1 as digital output
         ldr     r0, =GPIOC_CRH
         @ 0100 0100 0100 0100 0100 0100 0011 0100
-        ldr     r4, =0x34444444
+        ldr     r4, =0x44344444
         str     r4, [r0]
 
         # set led status initial value
